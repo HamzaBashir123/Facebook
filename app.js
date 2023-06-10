@@ -68,7 +68,7 @@ signUp.addEventListener('click',signUpHandler)
                 surName: Surname.value,
                 mobileNum: cellNumber.value,
                 password: passWord.value,
-                date: new Date(`${year.value}-${month.value}-${day.value}`),
+                dateOfBirth: new Date(`${year.value}-${month.value}-${day.value}`),
                 gender: genValue,
             }
             users.push(userObj)
@@ -104,7 +104,6 @@ function loginHandler(){
     
     if(!emailInput.value || !passwordInput.value) return alert("Please write email and password to continue")
   const userCheck =  users.filter((item) =>{
-    console.log(item.value)
     return item.mobileNum === emailInput.value
   })
   console.log(userCheck)
@@ -125,6 +124,15 @@ function loginHandler(){
 }
 
 login.addEventListener('click',loginHandler)
+
+// Also Enter Button to tun the Login Function
+
+passwordInput.addEventListener('keydown',(a)=>{
+    if(a.key === 'Enter'){
+        console.log('je')
+        loginHandler()
+    }
+})
 
 
 
