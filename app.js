@@ -106,7 +106,7 @@ function loginHandler(){
   const userCheck =  users.filter((item) =>{
     return item.mobileNum === emailInput.value
   })
-  console.log(userCheck)
+//   console.log(userCheck)
   if(!userCheck.length) return alert("This user is not registered, kindly create an account first")
   if(userCheck[0].password == passwordInput.value) {
     alert("user is logging in")

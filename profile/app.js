@@ -17,11 +17,11 @@ const lastName = last.slice(0, 1).toUpperCase() + last.slice(1).toLowerCase();
 
 
 porfilePage.addEventListener('click',()=>{
-   window.location.href = "../profile/index.html"
-   
+   window.location.href = "#"
+   porfilePage.style.backgroundColor = 'black'
 })
 homePage.addEventListener('click',()=>{
-   window.location.href = "#"
+   window.location.href = "../dashboard/index.html"
 })
 
 logout.addEventListener("click", () => {
@@ -87,7 +87,7 @@ rightDiv.innerHTML = rightData.join("");
 const posts = JSON.parse(localStorage.getItem("posts")) || [];
 
 
-posts.forEach((post) => {
+posts.filter((post) => post.userNumber === isLoggedInUser.mobileNum).forEach((post) => {
   var div1 = document.createElement("div");
   div1.setAttribute('class', 'appendDiv')
   div1.innerHTML = `<div class="postDivUpper">
