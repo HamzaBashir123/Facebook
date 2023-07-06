@@ -7,7 +7,7 @@ const rightChild = document.querySelector('.rightChild')
 
 
 
-crossIcon.addEventListener('click',()=>{
+const signUpClosed = ()=>{
     createPage.style.display = 'none'
     brigth.style.display = 'none'
     CreateAccount.style.zIndex = 1;
@@ -15,7 +15,10 @@ crossIcon.addEventListener('click',()=>{
     
 
 
-})
+}
+crossIcon.addEventListener('click', signUpClosed)
+
+
 const openSignUpForm = ()=>{
     // console.log('hello')
     createPage.style.display = 'block'
@@ -61,7 +64,7 @@ signUp.addEventListener('click',signUpHandler)
         }
         if (firstname.value !== "" && Surname.value !== "" && cellNumber.value !== "" && passWord.value !== "" &&  genValue !== undefined) {
             if (passWord.value.length < 8) return alert("password should contain 8 characters")
-            
+            if (cellNumber.value.length != 11) return alert("Phone no not correct")
     
             const userObj = {
                 firstName: firstname.value,
@@ -80,7 +83,7 @@ signUp.addEventListener('click',signUpHandler)
     Surname.value = ""
     cellNumber.value = ""
     passWord.value = ""
-    
+    signUpClosed()
     console.log(userObj)
     }else {
         alert("insano ki tarha saari fields fill up kardo")
